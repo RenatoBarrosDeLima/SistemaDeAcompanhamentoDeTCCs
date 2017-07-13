@@ -18,15 +18,15 @@ class ProfessorControler {
         $banco = "tcc";
         $conn = new mysqli($host, $user, $pass, $banco);
 
-        $this->cadastro->setMatricula_Aluno($_POST['matricula_aluno']);
+        $this->cadastro->setMatricula_Aluno($_POST['matricula']);
 
-        $sql = "select * FROM aluno WHERE matricula_aluno = '" . $_POST['matricula_aluno'] . "'";
+        $sql = "select * FROM aluno WHERE matricula = '" . $_POST['matricula'] . "'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $this->cadastro->setNome_Aluno($row["nome_aluno"]);
-                $this->cadastro->setEmail_Aluno($row["email_aluno"]);
+                $this->cadastro->setNome_Aluno($row["nome"]);
+                $this->cadastro->setEmail_Aluno($row["email"]);
                 $this->cadastro->setCurso_Aluno($row["codCurso"]);
             }
         }

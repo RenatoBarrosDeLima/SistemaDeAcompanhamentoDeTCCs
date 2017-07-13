@@ -172,18 +172,18 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
                                                             die("Connection failed: " . $conn->connect_error);
                                                         }
 
-                                                        //$sql = "SELECT a.matricula_aluno, a.nome_aluno, b.nome_curso, a.email_aluno FROM aluno as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '" . $_SESSION['CURSO_COORDENADOR_CURSO'] . "'";
-                                                        $sql = "SELECT * FROM aluno a WHERE a.matricula_aluno NOT IN (SELECT matricula_aluno FROM aluno_tcc) AND a.codCurso = '" . $_SESSION['CURSO_COORDENADOR_CURSO'] . "'";
+                                                        //$sql = "SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '" . $_SESSION['CURSO_COORDENADOR_CURSO'] . "'";
+                                                        $sql = "SELECT * FROM aluno a WHERE a.matricula NOT IN (SELECT matricula FROM aluno_tcc) AND a.codCurso = '" . $_SESSION['CURSO_COORDENADOR_CURSO'] . "'";
                                                         $result = $conn->query($sql);
 
                                                         if ($result->num_rows > 0) {
                                                             // output data of each row
                                                             while ($row = $result->fetch_assoc()) {
-                                                                echo '<td>' . $row["matricula_aluno"] . '</td>';
-                                                                echo '<td>' . $row["nome_aluno"] . '</td>';
-                                                                echo '<td>' . $row["email_aluno"] . '</td>';
-                                                                echo '<td> <button value=' . $row['matricula_aluno'] . ' 
-                                                                name="matricula_aluno" type="submit" >Matricular</button> </td>';
+                                                                echo '<td>' . $row["matricula"] . '</td>';
+                                                                echo '<td>' . $row["nome"] . '</td>';
+                                                                echo '<td>' . $row["email"] . '</td>';
+                                                                echo '<td> <button value=' . $row['matricula'] . ' 
+                                                                name="matricula" type="submit" >Matricular</button> </td>';
                                                                 echo '</tr>';
                                                             }
                                                         } else {

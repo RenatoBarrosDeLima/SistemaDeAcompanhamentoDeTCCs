@@ -69,7 +69,7 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                         </li>
 
                         <li>
-                            <a href="xxxx.php">
+                            <a href="grupoTCC.php">
                                 <i class="pe-7s-users"></i>
                                 <p>Grupos de TCC's</p>
                             </a>

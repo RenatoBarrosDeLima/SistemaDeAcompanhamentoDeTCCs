@@ -7,7 +7,7 @@ class Banco {
     public $result;
     public $host;
     public $usuario;
-    public $senha;
+    private $senha;
     public $banco;
     public $tabela;
     public $campos; // array

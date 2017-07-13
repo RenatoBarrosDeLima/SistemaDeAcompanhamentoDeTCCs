@@ -173,17 +173,17 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
                                                         if ($conn->connect_error) {
                                                             die("Connection failed: " . $conn->connect_error);
                                                         }
-                                                        $sql = "SELECT a.matricula_aluno, a.nome_aluno, b.nome_curso, a.email_aluno FROM aluno_tcc as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '".$_SESSION['CURSO_COORDENADOR_CURSO']."'";
+                                                        $sql = "SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno_tcc as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '".$_SESSION['CURSO_COORDENADOR_CURSO']."'";
                                                         //$sql = "select * FROM aluno_tcc WHERE codCurso = '".$_SESSION['Codigo']."' and periodo = '2017.1'";
                                                         $result = $conn->query($sql);
 
                                                         if ($result->num_rows > 0) {
                                                             // output data of each row
                                                             while ($row = $result->fetch_assoc()) {
-                                                                echo '<td>' . $row["matricula_aluno"] . '</td>';
-                                                                echo '<td>' . $row["nome_aluno"] . '</td>';
+                                                                echo '<td>' . $row["matricula"] . '</td>';
+                                                                echo '<td>' . $row["nome"] . '</td>';
                                                                 echo '<td>' . $row["nome_curso"] . '</td>';
-                                                                echo '<td>' . $row["email_aluno"] . '</td>';
+                                                                echo '<td>' . $row["email"] . '</td>';
                                                                 echo '</tr>';
                                                             }
                                                         }
