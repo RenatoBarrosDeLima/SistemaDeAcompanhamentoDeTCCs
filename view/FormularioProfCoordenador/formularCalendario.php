@@ -52,10 +52,20 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
 
         <script>
             $(document).ready(function () {
-                 !function(e){"function"==typeof define&&define.amd?define(["jquery","moment"],e):"object"==typeof exports?module.exports=e(require("jquery"),require("moment")):e(jQuery,moment)}(function(e,a){!function(){a.defineLocale("pt-br",{months:"Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro".split("_"),monthsShort:"Jan_Fev_Mar_Abr_Mai_Jun_Jul_Ago_Set_Out_Nov_Dez".split("_"),weekdays:"Domingo_Segunda-feira_Terça-feira_Quarta-feira_Quinta-feira_Sexta-feira_Sábado".split("_"),weekdaysShort:"Dom_Seg_Ter_Qua_Qui_Sex_Sáb".split("_"),weekdaysMin:"Do_2ª_3ª_4ª_5ª_6ª_Sá".split("_"),weekdaysParseExact:!0,longDateFormat:{LT:"HH:mm",LTS:"HH:mm:ss",L:"DD/MM/YYYY",LL:"D [de] MMMM [de] YYYY",LLL:"D [de] MMMM [de] YYYY [às] HH:mm",LLLL:"dddd, D [de] MMMM [de] YYYY [às] HH:mm"},calendar:{sameDay:"[Hoje às] LT",nextDay:"[Amanhã às] LT",nextWeek:"dddd [às] LT",lastDay:"[Ontem às] LT",lastWeek:function(){return 0===this.day()||6===this.day()?"[Último] dddd [às] LT":"[Última] dddd [às] LT"},sameElse:"L"},relativeTime:{future:"em %s",past:"%s atrás",s:"poucos segundos",m:"um minuto",mm:"%d minutos",h:"uma hora",hh:"%d horas",d:"um dia",dd:"%d dias",M:"um mês",MM:"%d meses",y:"um ano",yy:"%d anos"},dayOfMonthOrdinalParse:/\d{1,2}º/,ordinal:"%dº"})}(),e.fullCalendar.datepickerLocale("pt-br","pt-BR",{closeText:"Fechar",prevText:"&#x3C;Anterior",nextText:"Próximo&#x3E;",currentText:"Hoje",monthNames:["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"],monthNamesShort:["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],dayNames:["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"],dayNamesShort:["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"],dayNamesMin:["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"],weekHeader:"Sm",dateFormat:"dd/mm/yy",firstDay:0,isRTL:!1,showMonthAfterYear:!1,yearSuffix:""}),e.fullCalendar.locale("pt-br",{buttonText:{month:"Mês",week:"Semana",day:"Dia",list:"Compromissos"},allDayText:"dia inteiro",eventLimitText:function(e){return"mais +"+e},noEventsMessage:"Não há eventos para mostrar"})});
+                !function (e) {
+                    "function" == typeof define && define.amd ? define(["jquery", "moment"], e) : "object" == typeof exports ? module.exports = e(require("jquery"), require("moment")) : e(jQuery, moment)
+                }(function (e, a) {
+                    !function () {
+                        a.defineLocale("pt-br", {months: "Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro".split("_"), monthsShort: "Jan_Fev_Mar_Abr_Mai_Jun_Jul_Ago_Set_Out_Nov_Dez".split("_"), weekdays: "Domingo_Segunda-feira_Terça-feira_Quarta-feira_Quinta-feira_Sexta-feira_Sábado".split("_"), weekdaysShort: "Dom_Seg_Ter_Qua_Qui_Sex_Sáb".split("_"), weekdaysMin: "Do_2ª_3ª_4ª_5ª_6ª_Sá".split("_"), weekdaysParseExact: !0, longDateFormat: {LT: "HH:mm", LTS: "HH:mm:ss", L: "DD/MM/YYYY", LL: "D [de] MMMM [de] YYYY", LLL: "D [de] MMMM [de] YYYY [às] HH:mm", LLLL: "dddd, D [de] MMMM [de] YYYY [às] HH:mm"}, calendar: {sameDay: "[Hoje às] LT", nextDay: "[Amanhã às] LT", nextWeek: "dddd [às] LT", lastDay: "[Ontem às] LT", lastWeek: function () {
+                                    return 0 === this.day() || 6 === this.day() ? "[Último] dddd [às] LT" : "[Última] dddd [às] LT"
+                                }, sameElse: "L"}, relativeTime: {future: "em %s", past: "%s atrás", s: "poucos segundos", m: "um minuto", mm: "%d minutos", h: "uma hora", hh: "%d horas", d: "um dia", dd: "%d dias", M: "um mês", MM: "%d meses", y: "um ano", yy: "%d anos"}, dayOfMonthOrdinalParse: /\d{1,2}º/, ordinal: "%dº"})
+                    }(), e.fullCalendar.datepickerLocale("pt-br", "pt-BR", {closeText: "Fechar", prevText: "&#x3C;Anterior", nextText: "Próximo&#x3E;", currentText: "Hoje", monthNames: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"], monthNamesShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"], dayNames: ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"], dayNamesShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"], dayNamesMin: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"], weekHeader: "Sm", dateFormat: "dd/mm/yy", firstDay: 0, isRTL: !1, showMonthAfterYear: !1, yearSuffix: ""}), e.fullCalendar.locale("pt-br", {buttonText: {month: "Mês", week: "Semana", day: "Dia", list: "Compromissos"}, allDayText: "dia inteiro", eventLimitText: function (e) {
+                            return"mais +" + e
+                        }, noEventsMessage: "Não há eventos para mostrar"})
+                });
 
-                 var today = moment(Date()).format("YYYY-MM-DD");
-                 
+                var today = moment(Date()).format("YYYY-MM-DD");
+
                 //CARREGA CALENDÁRIO E EVENTOS DO BANCO
                 $('#calendario').fullCalendar({
                     header: {
@@ -122,14 +132,14 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                     <ul class="nav">
                         <li>
                             <a href="inicioProfCoordenador.php">
-                                <i class="pe-7s-graph"></i>
+                                <i class="pe-7s-home"></i>
                                 <p>Inicio</p>
                             </a>
                         </li>
 
                         <li>
-                            <a href="xxxx.php">
-                                <i class="pe-7s-users"></i>
+                            <a href="grupoTCC.php">
+                                <i class="pe-7s-study"></i>
                                 <p>Grupos de TCC's</p>
                             </a>
                         </li>
@@ -137,9 +147,17 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                         <li>
                             <a href="alunosMatriculados.php">
                                 <i class="pe-7s-users"></i>
-                                <p>Turma 2017.1</p>
+                                <p>Turma de TCC 2017.1</p>
                             </a>
                         </li>
+
+                        <li>
+                            <a href="matricularAluno.php">
+                                <i class="pe-7s-add-user"></i>
+                                <p>Matricular Aluno</p>
+                            </a>
+                        </li>
+
 
                         <li>
                             <a href="formularCalendario.php">
@@ -231,10 +249,10 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                             </form>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 
 </html>
 

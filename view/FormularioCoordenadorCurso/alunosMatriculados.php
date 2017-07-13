@@ -66,20 +66,23 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
                     <ul class="nav">
                         <li>
                             <a href="inicioCoordenadorCurso.php">
-                                <i class="pe-7s-graph"></i>
+                                <i class="pe-7s-home"></i>
                                 <p>Inicio</p>
                             </a>
                         </li>
 
-
                         <li>
-                            <a href="matricularAluno.php">
-                                <i class="pe-7s-add-user"></i>
-                                <p>Matricular Aluno</p>
+                            <a href="alunosMatriculados.php">
+                                <i class="pe-7s-users"></i>
+                                <p>Turma de TCC 2017.1</p>
                             </a>
                         </li>
-
-
+                        <li>
+                            <a href="calendario.php">
+                                <i class="pe-7s-date"></i>
+                                <p>Calendário de TCC</p>
+                            </a>
+                        </li>
                         <li class="active-pro">
                             <a href="http://www.uespi.br/site/" target="_blank" class="simple-text">
                                 <i class="pe-7s-rocket"></i>
@@ -173,7 +176,7 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
                                                         if ($conn->connect_error) {
                                                             die("Connection failed: " . $conn->connect_error);
                                                         }
-                                                        $sql = "SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno_tcc as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '".$_SESSION['CURSO_COORDENADOR_CURSO']."'";
+                                                        $sql = "SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno_tcc as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '" . $_SESSION['CURSO_COORDENADOR_CURSO'] . "'";
                                                         //$sql = "select * FROM aluno_tcc WHERE codCurso = '".$_SESSION['Codigo']."' and periodo = '2017.1'";
                                                         $result = $conn->query($sql);
 

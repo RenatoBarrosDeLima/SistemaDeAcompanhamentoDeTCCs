@@ -20,7 +20,7 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
         <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-        <title>Turma 2017.1</title>
+        <title>Turma de TCC 2017.1</title>
 
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         <meta name="viewport" content="width=device-width" />
@@ -64,20 +64,34 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                     </div>
 
                     <ul class="nav">
-                        <li>
+                       <li>
                             <a href="inicioProfCoordenador.php">
-                                <i class="pe-7s-graph"></i>
+                                <i class="pe-7s-home"></i>
                                 <p>Inicio</p>
                             </a>
                         </li>
 
-
                         <li>
-                            <a href="xxxxxxxxx.php">
+                            <a href="grupoTCC.php">
                                 <i class="pe-7s-study"></i>
-                                <p>Criar Grupos de TCCs</p>
+                                <p>Grupos de TCC's</p>
                             </a>
                         </li>
+
+                        <li>
+                            <a href="alunosMatriculados.php">
+                                <i class="pe-7s-users"></i>
+                                <p>Turma de TCC 2017.1</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="matricularAluno.php">
+                                <i class="pe-7s-add-user"></i>
+                                <p>Matricular Aluno</p>
+                            </a>
+                        </li>
+
 
                         <li>
                             <a href="formularCalendario.php">
@@ -85,7 +99,7 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                 <p>Calendário de TCC</p>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="xxxxxxxx.php">
                                 <i class="pe-7s-attention"></i>

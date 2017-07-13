@@ -62,7 +62,7 @@ if (!isset($_SESSION['MATRICULA_PROF_ORIENTADOR'])) {
                     <ul class="nav">
                         <li>
                             <a href="inicioProfOrientador.php">
-                                <i class="pe-7s-graph"></i>
+                               <i class="pe-7s-home"></i>
                                 <p>Inicio</p>
                             </a>
                         </li>

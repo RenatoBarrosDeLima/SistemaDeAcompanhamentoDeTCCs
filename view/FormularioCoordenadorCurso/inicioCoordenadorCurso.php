@@ -62,15 +62,8 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
                     <ul class="nav">
                         <li>
                             <a href="inicioCoordenadorCurso.php">
-                                <i class="pe-7s-graph"></i>
+                                 <i class="pe-7s-home"></i>
                                 <p>Inicio</p>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="matricularAluno.php">
-                                <i class="pe-7s-add-user"></i>
-                                <p>Matricular Aluno</p>
                             </a>
                         </li>
 

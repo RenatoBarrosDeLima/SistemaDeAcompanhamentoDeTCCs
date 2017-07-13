@@ -66,16 +66,29 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                     <ul class="nav">
                         <li>
                             <a href="inicioProfCoordenador.php">
-                                <i class="pe-7s-graph"></i>
+                                <i class="pe-7s-home"></i>
                                 <p>Inicio</p>
                             </a>
                         </li>
 
+                        <li>
+                            <a href="grupoTCC.php">
+                                <i class="pe-7s-study"></i>
+                                <p>Grupos de TCC's</p>
+                            </a>
+                        </li>
 
                         <li>
-                            <a href="xxxxxxxxx.php">
-                                <i class="pe-7s-study"></i>
-                                <p>Criar Grupos de TCCs</p>
+                            <a href="alunosMatriculados.php">
+                                <i class="pe-7s-users"></i>
+                                <p>Turma de TCC 2017.1</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="matricularAluno.php">
+                                <i class="pe-7s-add-user"></i>
+                                <p>Matricular Aluno</p>
                             </a>
                         </li>
 
@@ -184,15 +197,15 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                                         if ($conn->connect_error) {
                                                             die("Connection failed: " . $conn->connect_error);
                                                         }
-                                                        $sql = "SELECT * FROM aluno AS a JOIN aluno_professor AS P ON a.matricula_aluno = P.matricula_aluno JOIN professor AS J ON j.matricula_professor = p.matricula_professor WHERE curso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'";
+                                                        $sql = "SELECT * FROM aluno_computacao AS a JOIN aluno_professor AS P ON a.matricula = P.matricula_aluno JOIN professor AS J ON j.matricula = p.matricula_professor WHERE curso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'";
                                                         //$sql = "select * FROM aluno_tcc WHERE codCurso = '".$_SESSION['Codigo']."' and periodo = '2017.1'";
                                                         $result = $conn->query($sql);
-                                                        
+
                                                         if ($result->num_rows > 0) {
                                                             // output data of each row
                                                             while ($row = $result->fetch_assoc()) {
-                                                                echo '<td>' . $row["nome_aluno"] . '</td>';
-                                                                echo '<td>' . $row["nome_professor"] . '</td>';
+                                                                echo '<td>' . $row["nome"] . '</td>';
+                                                                echo '<td>' . $row["nome"] . '</td>';
                                                                 echo '</tr>';
                                                             }
                                                         }

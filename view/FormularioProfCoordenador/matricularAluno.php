@@ -5,7 +5,7 @@ if (!isset($_SESSION))
     session_start();
 
 // Verifica se não há a variável da sessão que identifica o usuário
-if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
+if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
     // Destrói a sessão por segurança
     session_destroy();
     // Redireciona o visitante de volta pro login
@@ -20,7 +20,7 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
         <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-        <title>Cadastrar Turma</title>
+        <title>Matricular Alunos em TCC</title>
 
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         <meta name="viewport" content="width=device-width" />
@@ -65,9 +65,16 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
 
                     <ul class="nav">
                         <li>
-                            <a href="inicioCoordenadorCurso.php">
-                                <i class="pe-7s-graph"></i>
+                            <a href="inicioProfCoordenador.php">
+                                <i class="pe-7s-home"></i>
                                 <p>Inicio</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="grupoTCC.php">
+                                <i class="pe-7s-study"></i>
+                                <p>Grupos de TCC's</p>
                             </a>
                         </li>
 
@@ -75,6 +82,27 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
                             <a href="alunosMatriculados.php">
                                 <i class="pe-7s-users"></i>
                                 <p>Turma de TCC 2017.1</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="matricularAluno.php">
+                                <i class="pe-7s-add-user"></i>
+                                <p>Matricular Aluno</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="formularCalendario.php">
+                                <i class="pe-7s-date"></i>
+                                <p>Calendário de TCC</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="xxxxxxxx.php">
+                                <i class="pe-7s-attention"></i>
+                                <p>Emitir Alerta</p>
                             </a>
                         </li>
 
@@ -117,7 +145,7 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
                                 <li>
 
                                     <a href="formEditarProfessor.php">
-                                        <?php echo "" . $_SESSION['NOME_COORDENADOR_CURSO']; ?>
+                                        <?php echo "" . $_SESSION['NOME_PROF_COORDENADOR']; ?>
                                     </a>
                                 </li>
 
@@ -144,7 +172,7 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
                             <div class="col-md-8">
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">ALUNOS</h4>
+                                        <h4 class="title">ALUNOS DO CURSO DE CIÊNCIA DA COMPUTAÇÃO</h4>
                                     </div>
                                     <div class="content">
                                         <form class="form-signin" id="formulario" action= "../../controller/AlunoControler.php" method="post">
@@ -172,8 +200,8 @@ if (!isset($_SESSION['MATRICULA_COORDENADOR_CURSO'])) {
                                                             die("Connection failed: " . $conn->connect_error);
                                                         }
 
-                                                        //$sql = "SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '" . $_SESSION['CURSO_COORDENADOR_CURSO'] . "'";
-                                                        $sql = "SELECT * FROM aluno a WHERE a.matricula NOT IN (SELECT matricula FROM aluno_tcc) AND a.codCurso = '" . $_SESSION['CURSO_COORDENADOR_CURSO'] . "'";
+                                                        //$sql = "SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno_computacao as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '" . $_SESSION['CURSO_COORDENADOR_CURSO'] . "'";
+                                                        $sql = "SELECT * FROM aluno_computacao a WHERE a.matricula NOT IN (SELECT matricula FROM aluno_tcc) AND a.codCurso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'";
                                                         $result = $conn->query($sql);
 
                                                         if ($result->num_rows > 0) {

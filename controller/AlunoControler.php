@@ -20,7 +20,7 @@ class ProfessorControler {
 
         $this->cadastro->setMatricula_Aluno($_POST['matricula']);
 
-        $sql = "select * FROM aluno WHERE matricula = '" . $_POST['matricula'] . "'";
+        $sql = "select * FROM aluno_computacao WHERE matricula = '" . $_POST['matricula'] . "'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

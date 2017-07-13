@@ -79,6 +79,27 @@ if (!isset($_SESSION['MATRICULA_PROF_ORIENTADOR'])) {
                     events: 'eventos.php',
                     eventColor: '#dd6777'
                 });
+                //CADASTRA NOVO EVENTO
+                $('#novo_evento').submit(function () {
+                    //serialize() junta todos os dados do form e deixa pronto pra ser enviado pelo ajax
+                    var dados = jQuery(this).serialize();
+                    $.ajax({
+                        type: "POST",
+                        url: "cadastrar_evento.php",
+                        data: dados,
+                        success: function (data)
+                        {
+                            if (data == "1") {
+                                alert("Cadastrado com sucesso! ");
+                                //atualiza a página!
+                                location.reload();
+                            } else {
+                                alert("Houve algum problema.. ");
+                            }
+                        }
+                    });
+                    return false;
+                });
             });
 
         </script>
@@ -110,7 +131,7 @@ if (!isset($_SESSION['MATRICULA_PROF_ORIENTADOR'])) {
                     <ul class="nav">
                         <li>
                             <a href="inicioProfOrientador.php">
-                                <i class="pe-7s-graph"></i>
+                                <i class="pe-7s-home"></i>
                                 <p>Inicio</p>
                             </a>
                         </li>
@@ -127,13 +148,13 @@ if (!isset($_SESSION['MATRICULA_PROF_ORIENTADOR'])) {
                                 <p>Documentos</p>
                             </a>
                         </li>
+
                         <li>
                             <a href="calendario.php">
                                 <i class="pe-7s-date"></i>
                                 <p>Calendário de TCC</p>
                             </a>
                         </li>
-
                         <li class="active-pro">
                             <a href="http://www.uespi.br/site/" target="_blank" class="simple-text">
                                 <i class="pe-7s-rocket"></i>
@@ -201,7 +222,14 @@ if (!isset($_SESSION['MATRICULA_PROF_ORIENTADOR'])) {
                 <div class="content">
                     <div class="container-fluid">
                         <div class="form-signin" id='calendario'>
-                            
+                            <form id="novo_evento" action="" method="post">
+                                Nome do Evento: <input type="text" name="nome" class="form-control" placeholder="Nome do Evento" required/>            
+                                Data do Evento: <input type="date" name="data" class="form-control" required/>  
+                                <input type="hidden" name="codCurso" value="<?php echo $_SESSION['CURSO_PROF_COORDENADOR']; ?>" required/>
+                                <br>
+                                <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin"> Salvar novo evento </button>
+                            </form>
+
                         </div>
 
                     </div>

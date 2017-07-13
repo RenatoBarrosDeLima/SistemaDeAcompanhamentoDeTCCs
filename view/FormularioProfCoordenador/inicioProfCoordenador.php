@@ -1,4 +1,4 @@
-<?php 
+<?php
 // A sessão precisa ser iniciada em cada página diferente
 if (!isset($_SESSION))
     session_start();
@@ -11,7 +11,6 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
     echo "<script>alert('Registro Não Autenticado!');document.location='../../index.php'</script>";
     exit;
 }
- 
 ?>
 <!doctype html>
 
@@ -63,25 +62,33 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                     <ul class="nav">
                         <li>
                             <a href="inicioProfCoordenador.php">
-                                <i class="pe-7s-graph"></i>
+                                <i class="pe-7s-home"></i>
                                 <p>Inicio</p>
                             </a>
                         </li>
 
                         <li>
                             <a href="grupoTCC.php">
-                                <i class="pe-7s-users"></i>
+                                <i class="pe-7s-study"></i>
                                 <p>Grupos de TCC's</p>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="alunosMatriculados.php">
                                 <i class="pe-7s-users"></i>
-                                <p>Turma 2017.1</p>
+                                <p>Turma de TCC 2017.1</p>
                             </a>
                         </li>
-                        
+
+                        <li>
+                            <a href="matricularAluno.php">
+                                <i class="pe-7s-add-user"></i>
+                                <p>Matricular Aluno</p>
+                            </a>
+                        </li>
+
+
                         <li>
                             <a href="formularCalendario.php">
                                 <i class="pe-7s-date"></i>
@@ -165,13 +172,13 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                         <img vspace="35px" hspace="15px" src="../imagens/uespi.png" title="Palácio do Pirajá"/>
 
 
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-    </body>
+</body>
 
 </html>
 
