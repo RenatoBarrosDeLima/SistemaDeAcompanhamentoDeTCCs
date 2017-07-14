@@ -6,9 +6,9 @@ if (!isset($_SESSION))
 
 // Verifica se não há a variável da sessão que identifica o usuário
 if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
-    // Destrói a sessão por segurança
+// Destrói a sessão por segurança
     session_destroy();
-    // Redireciona o visitante de volta pro login
+// Redireciona o visitante de volta pro login
     echo "<script>alert('Registro Não Autenticado!');document.location='../../index.php'</script>";
     exit;
 }
@@ -190,19 +190,10 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                                     <tr>
 
                                                         <?php
-                                                        $host = "localhost";
-                                                        $user = "root";
-                                                        $pass = "";
-                                                        $banco = "tcc";
-                                                        $conn = new mysqli($host, $user, $pass, $banco);
+                                                        include '../../model/dao/Banco.php';
 
-                                                        if ($conn->connect_error) {
-                                                            die("Connection failed: " . $conn->connect_error);
-                                                        }
-
-                                                        //$sql = "SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno_computacao as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '" . $_SESSION['CURSO_COORDENADOR_CURSO'] . "'";
-                                                        $sql = "SELECT * FROM aluno_computacao a WHERE a.matricula NOT IN (SELECT matricula FROM aluno_tcc) AND a.codCurso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'";
-                                                        $result = $conn->query($sql);
+                                                        $conn = new Banco();
+                                                        $result = $conn->querySelect("SELECT * FROM aluno_computacao a WHERE a.matricula NOT IN (SELECT matricula FROM aluno_tcc) AND a.codCurso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'");
 
                                                         if ($result->num_rows > 0) {
                                                             // output data of each row
@@ -210,15 +201,14 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                                                 echo '<td>' . $row["matricula"] . '</td>';
                                                                 echo '<td>' . $row["nome"] . '</td>';
                                                                 echo '<td>' . $row["email"] . '</td>';
-                                                                echo '<td> <button value=' . $row['matricula'] . ' 
-                                                                name="matricula" type="submit" >Matricular</button> </td>';
+                                                                echo '<td> <button value=' . $row['matricula'] . 'name="matricula" type="submit" >Matricular</button> </td>';
                                                                 echo '</tr>';
                                                             }
                                                         } else {
                                                             echo "";
                                                         }
 
-                                                        $conn->close();
+                                                        $conn->disconnect();
                                                         ?>
                                                 </tbody>
                                             </table>

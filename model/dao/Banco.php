@@ -30,6 +30,19 @@ class Banco {
         $this->conecta = mysqli_connect($this->host, $this->user, $this->pass, $this->banco) or die(mysqli_error());
     }
 
+    public function querySelect($query1) {
+        $this->query = $query1;
+        if ($resultadox = mysqli_query($this->conecta, $this->query)) {
+            return $resultadox;
+        } else {
+            return 0;
+        }
+    }
+
+    public function disconnect() {
+        return mysqli_close($this->conecta);
+    }
+
     private function montaQuery($tipo) {
         $cont = count($this->campos);
         for ($i = 0; $i < $cont; $i++) {
@@ -70,7 +83,6 @@ class Banco {
 
         return $this->result;
     }
-
 
 }
 

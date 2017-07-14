@@ -188,19 +188,12 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                                 <tbody>
                                                     <tr>
                                                         <?php
-                                                        $host = "localhost";
-                                                        $user = "root";
-                                                        $pass = "";
-                                                        $banco = "tcc";
-                                                        $conn = new mysqli($host, $user, $pass, $banco);
+                                                        
+                                                        include '../../model/dao/Banco.php';
 
-                                                        if ($conn->connect_error) {
-                                                            die("Connection failed: " . $conn->connect_error);
-                                                        }
-                                                        $sql = "SELECT * FROM aluno_computacao AS a JOIN aluno_professor AS P ON a.matricula = P.matricula_aluno JOIN professor AS J ON j.matricula = p.matricula_professor WHERE curso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'";
-                                                        //$sql = "select * FROM aluno_tcc WHERE codCurso = '".$_SESSION['Codigo']."' and periodo = '2017.1'";
-                                                        $result = $conn->query($sql);
-
+                                                        $conn = new Banco();
+                                                        $result = $conn->querySelect("SELECT * FROM aluno_computacao AS a JOIN aluno_professor AS P ON a.matricula = P.matricula_aluno JOIN professor AS J ON j.matricula = p.matricula_professor WHERE curso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'");
+                                                        
                                                         if ($result->num_rows > 0) {
                                                             // output data of each row
                                                             while ($row = $result->fetch_assoc()) {
@@ -209,7 +202,7 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                                                 echo '</tr>';
                                                             }
                                                         }
-                                                        $conn->close();
+                                                        $conn->disconnect();
                                                         ?>
                                                 </tbody>
                                             </table>

@@ -64,7 +64,7 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                     </div>
 
                     <ul class="nav">
-                       <li>
+                        <li>
                             <a href="inicioProfCoordenador.php">
                                 <i class="pe-7s-home"></i>
                                 <p>Inicio</p>
@@ -192,18 +192,10 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                                 <tbody>
                                                     <tr>
                                                         <?php
-                                                        $host = "localhost";
-                                                        $user = "root";
-                                                        $pass = "";
-                                                        $banco = "tcc";
-                                                        $conn = new mysqli($host, $user, $pass, $banco);
+                                                        include '../../model/dao/Banco.php';
 
-                                                        if ($conn->connect_error) {
-                                                            die("Connection failed: " . $conn->connect_error);
-                                                        }
-                                                        $sql = "SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno_tcc as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '".$_SESSION['CURSO_PROF_COORDENADOR']."'";
-                                                        //$sql = "select * FROM aluno_tcc WHERE codCurso = '".$_SESSION['Codigo']."' and periodo = '2017.1'";
-                                                        $result = $conn->query($sql);
+                                                        $conn = new Banco();
+                                                        $result = $conn->querySelect("SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno_tcc as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'");
 
                                                         if ($result->num_rows > 0) {
                                                             // output data of each row
@@ -215,7 +207,7 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                                                 echo '</tr>';
                                                             }
                                                         }
-                                                        $conn->close();
+                                                        $conn->disconnect();
                                                         ?>
                                                 </tbody>
                                             </table>
