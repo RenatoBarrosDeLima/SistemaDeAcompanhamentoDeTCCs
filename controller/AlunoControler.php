@@ -1,6 +1,7 @@
 <?php
 
 require_once("../model/Aluno.php");
+require_once "../model/dao/Banco.php";
 
 class ProfessorControler {
 
@@ -12,16 +13,10 @@ class ProfessorControler {
     }
 
     private function incluir() {
-        $host = "localhost";
-        $user = "root";
-        $pass = "";
-        $banco = "tcc";
-        $conn = new mysqli($host, $user, $pass, $banco);
+        $conn = new Banco();
+        $result = $conn->querySelect("select * FROM aluno_computacao WHERE matricula = '" . $_POST['matricula'] . "'");
 
         $this->cadastro->setMatricula_Aluno($_POST['matricula']);
-
-        $sql = "select * FROM aluno_computacao WHERE matricula = '" . $_POST['matricula'] . "'";
-        $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -32,7 +27,8 @@ class ProfessorControler {
         }
 
         $result = $this->cadastro->incluir();
-        echo "<script>alert('Registro incluído com sucesso!');document.location='../view/FormularioCoordenadorCurso/inicioCoordenadorCurso.php'</script>";
+        echo "<script>alert('Registro incluído com sucesso!');
+        document.location = '../view/FormularioProfCoordenador/inicioProfCoordenador.php'</script>";
     }
 
 }

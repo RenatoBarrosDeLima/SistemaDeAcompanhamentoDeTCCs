@@ -1,4 +1,4 @@
-<?php include 'conn.php'; ?>
+<?php include '../FormularioAluno/conn.php'; ?>
 <!doctype html>
 
 

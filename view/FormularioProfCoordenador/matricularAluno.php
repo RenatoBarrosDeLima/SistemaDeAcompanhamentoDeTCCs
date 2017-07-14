@@ -201,7 +201,8 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                                                 echo '<td>' . $row["matricula"] . '</td>';
                                                                 echo '<td>' . $row["nome"] . '</td>';
                                                                 echo '<td>' . $row["email"] . '</td>';
-                                                                echo '<td> <button value=' . $row['matricula'] . 'name="matricula" type="submit" >Matricular</button> </td>';
+                                                                echo '<td> <button value=' . $row['matricula'] . ' 
+                                                                name="matricula" type="submit" >Matricular</button> </td>';
                                                                 echo '</tr>';
                                                             }
                                                         } else {
