@@ -1,18 +1,4 @@
 <!doctype html>
-<?php
-// A sessão precisa ser iniciada em cada página diferente
-if (!isset($_SESSION))
-    session_start();
-
-// Verifica se não há a variável da sessão que identifica o usuário
-if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
-    // Destrói a sessão por segurança
-    session_destroy();
-    // Redireciona o visitante de volta pro login
-    echo "<script>alert('Registro Não Autenticado!');document.location='../../index.php'</script>";
-    exit;
-}
-?>
 <html lang="pt-BR">
 
     <head>
@@ -51,118 +37,14 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
 
 
         <div class="wrapper">
-            <div class="sidebar" data-color="azure" data-image="../imagens/logo.png">
-                <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
-
-
-                <div class="sidebar-wrapper">
-
-                    <div class="logo">
-                        <a href="http://www.uespi.br/site" target="_blank" class="simple-text">
-                            Site Da Instituição
-                        </a>
-                    </div>
-
-                    <ul class="nav">
-                        <li>
-                            <a href="inicioProfCoordenador.php">
-                                <i class="pe-7s-home"></i>
-                                <p>Inicio</p>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="grupoTCC.php">
-                                <i class="pe-7s-study"></i>
-                                <p>Grupos de TCC's</p>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="alunosMatriculados.php">
-                                <i class="pe-7s-users"></i>
-                                <p>Turma de TCC 2017.1</p>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="matricularAluno.php">
-                                <i class="pe-7s-add-user"></i>
-                                <p>Matricular Aluno</p>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="formularCalendario.php">
-                                <i class="pe-7s-date"></i>
-                                <p>Calendário de TCC</p>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="xxxxxxxx.php">
-                                <i class="pe-7s-attention"></i>
-                                <p>Emitir Alerta</p>
-                            </a>
-                        </li>
-
-
-                        <li class="active-pro">
-                            <a href="http://www.uespi.br/site/" target="_blank" class="simple-text">
-                                <i class="pe-7s-rocket"></i>
-                                <p>Site Da Instituição</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <?php
+            include 'menu_esquerdo.php';
+            ?>
 
             <div class="main-panel">
-                <nav class="navbar navbar-default navbar-fixed">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-
-                        </div>
-                        <div class="collapse navbar-collapse">
-                            <ul class="nav navbar-nav navbar-left">
-                                <li>
-
-                                </li>
-                                <li class="dropdown">
-
-                                </li>
-                            </ul>
-
-                            <ul class="nav navbar-nav navbar-right">
-                                <li>
-
-                                    <a href="formEditarProfessor.php">
-                                        <?php echo "" . $_SESSION['NOME_PROF_COORDENADOR']; ?>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="formEditarProfessor.php">
-                                        Editar Conta
-                                    </a>
-                                </li>
-                                <li class="dropdown">
-
-                                    <a href="../../index.php">
-                                        Sair
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+                <?php
+                include 'menu_superior.php';
+                ?>
 
                 <div class="content">
                     <div class="container-fluid">
@@ -171,12 +53,9 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                 <div class="card">
                                     <div class="header">
                                         <h4 class="title">GRUPOS DE TCCs - ALUNO(s) e PROFESSOR</h4>
-
-
                                     </div>
                                     <div class="content">
                                         <form class="form-signin" id="formulario" action= "../../controller/LaboratorioProfessorController.php" method="post">
-
                                             <table class="table">
                                                 <thead>
                                                     <tr>
@@ -184,47 +63,35 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                                                         <th>Professor Orientador</th>
                                                     </tr>
                                                 </thead>
-
                                                 <tbody>
-                                                    <tr>
-                                                        <?php
-                                                        
-                                                        include '../../model/dao/Banco.php';
+                                                    <?php
+                                                    include '../../model/dao/Banco.php';
 
-                                                        $conn = new Banco();
-                                                        $result = $conn->querySelect("SELECT * FROM aluno_computacao AS a JOIN aluno_professor AS P ON a.matricula = P.matricula_aluno JOIN professor AS J ON j.matricula = p.matricula_professor WHERE curso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'");
-                                                        
-                                                        if ($result->num_rows > 0) {
-                                                            // output data of each row
-                                                            while ($row = $result->fetch_assoc()) {
-                                                                echo '<td>' . $row["nome"] . '</td>';
-                                                                echo '<td>' . $row["nome"] . '</td>';
-                                                                echo '</tr>';
-                                                            }
+                                                    $conn = new Banco();
+                                                    $result = $conn->querySelect("SELECT * FROM aluno_computacao AS a JOIN aluno_professor AS P ON a.matricula = P.matricula_aluno JOIN professor AS J ON j.matricula = p.matricula_professor WHERE curso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'");
+
+                                                    if ($result->num_rows > 0) {
+                                                        // output data of each row
+                                                        while ($row = $result->fetch_assoc()) {
+                                                            echo '<td>' . $row["nome"] . '</td>';
+                                                            echo '<td>' . $row["nome"] . '</td>';
+                                                            echo '</tr>';
                                                         }
-                                                        $conn->disconnect();
-                                                        ?>
+                                                    }
+                                                    $conn->disconnect();
+                                                    ?>
                                                 </tbody>
                                             </table>
+                                        </form>
                                     </div>
                                 </div>
-                                </form>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
-
-    </div>
-
-</div>
-
-</body>
-
+    </body>
 </html>
 
 
