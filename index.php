@@ -30,7 +30,7 @@
                 <p id="profile-name" class="profile-name-card"></p>
 
                 <form class="form-signin" action="controller/LoginControler.php" method="post">
-                    
+
                     <span id="reauth-email" class="reauth-email"></span>
                     <input type="text" id="inputMatricula" class="form-control" name="mat" placeholder="Matricula" required autofocus>
                     <input type="password" id="inputSenha" class="form-control" name="sen" placeholder="Senha" required>
@@ -39,6 +39,7 @@
                     <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
 
                 </form><!-- /form -->
+                 <p>Não tem Acesso? Cadastre uma Senha abaixo!</p>
                 <a href='view/FormularioProfCoordenador/criarSenhaProfessorCoordenador.php' class="forgot-password">
                     Cadastrar Uma Senha de Professor
                 </a>
@@ -55,7 +56,9 @@
         </div>
 
     </body>
-<?php session_start(); session_destroy();exit; ?>
+    <?php session_start();
+    session_destroy();
+    exit; ?>
 </html>
 
 

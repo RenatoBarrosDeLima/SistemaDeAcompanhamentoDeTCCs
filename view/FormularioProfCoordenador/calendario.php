@@ -32,19 +32,32 @@
 
     </head>
     <body>
-        <?php
-        include 'menu_esquerdo.php';
-        ?>
-
-        <div class="main-panel">
+        <div class="wrapper">
             <?php
-            include 'menu_superior.php';
+            include 'menu_esquerdo.php';
             ?>
 
-            <div class="content" >
+            <div class="main-panel">
                 <?php
-                include './menu_calendario.php';
+                include 'menu_superior.php';
                 ?>
+                <div class="content" >
+                    <?php
+                    include './menu_calendario.php';
+                    ?>
+                </div>
+                <div class="container-fluid">
+                    <div class="col-md-4">
+                        <form id="novo_evento" action="" method="post">
+                            Nome do Evento: <input type="text" name="nome" class="form-control" placeholder="Nome do Evento" required/>            
+                            Data do Evento: <input type="date" name="data" class="form-control" required/>  
+                            <input type="hidden" name="codCurso" value="<?php echo $_SESSION['CURSO_PROF_COORDENADOR']; ?>" required/>
+                            <br>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin"> Salvar novo evento </button>
+                        </form>
+                    </div>
+                </div>
+                <?php include './menu_rodape.php'; ?>
             </div>
         </div>
     </body>

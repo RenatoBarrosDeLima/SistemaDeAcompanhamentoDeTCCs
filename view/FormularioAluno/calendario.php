@@ -31,19 +31,21 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <?php
-        include 'menu_esquerdo.php';
-        ?>
-
-        <div class="main-panel">
+        <div class="wrapper">
             <?php
-            include 'menu_superior.php';
+            include 'menu_esquerdo.php';
             ?>
 
-            <div class="content" >
+            <div class="main-panel">
                 <?php
-                include './menu_calendario.php';
+                include 'menu_superior.php';
                 ?>
+                <div class="content" >
+                    <?php
+                    include './menu_calendario.php';
+                    ?>
+                </div>
+                <?php include './menu_rodape.php'; ?>
             </div>
         </div>
     </body>

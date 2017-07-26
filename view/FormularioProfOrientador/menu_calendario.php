@@ -98,13 +98,7 @@
     </head>
     <body>
         <div class="form-signin" id='calendario'>
-            <form id="novo_evento" action="" method="post">
-                Nome do Evento: <input type="text" name="nome" class="form-control" placeholder="Nome do Evento" required/>            
-                Data do Evento: <input type="date" name="data" class="form-control" required/>  
-                <input type="hidden" name="codCurso" value="<?php echo $_SESSION['CURSO_PROF_ORIENTADOR']; ?>" required/>
-                <br>
-                <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin"> Salvar novo evento </button>
-            </form>
+
         </div>
     </body>
 </html>

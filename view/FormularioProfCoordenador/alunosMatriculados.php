@@ -26,10 +26,7 @@
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
         <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
     </head>
     <body>
@@ -46,52 +43,50 @@
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-7">
+                            <div class="col-md-9">
                                 <div class="card">
                                     <div class="header">
                                         <h4 class="title">ALUNOS MATRICULADOS EM TCC</h4>
                                     </div>
                                     <div class="content">
-                                        <form class="form-signin" id="formulario" action= "../../controller/LaboratorioProfessorController.php" method="post">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Matricula</th>
-                                                        <th>Nome</th>
-                                                        <th>Curso</th>
-                                                        <th>email</th>
-                                                    </tr>
-                                                </thead>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Matricula</th>
+                                                    <th>Nome</th>
+                                                    <th>Curso</th>
+                                                    <th>email</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <?php
+                                                    include '../../model/dao/Banco.php';
 
-                                                <tbody>
-                                                    <tr>
-                                                        <?php
-                                                        include '../../model/dao/Banco.php';
+                                                    $conn = new Banco();
+                                                    $result = $conn->querySelect("SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno_tcc as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'");
 
-                                                        $conn = new Banco();
-                                                        $result = $conn->querySelect("SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno_tcc as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'");
-
-                                                        if ($result->num_rows > 0) {
-                                                            // output data of each row
-                                                            while ($row = $result->fetch_assoc()) {
-                                                                echo '<td>' . $row["matricula"] . '</td>';
-                                                                echo '<td>' . $row["nome"] . '</td>';
-                                                                echo '<td>' . $row["nome_curso"] . '</td>';
-                                                                echo '<td>' . $row["email"] . '</td>';
-                                                                echo '</tr>';
-                                                            }
+                                                    if ($result->num_rows > 0) {
+                                                        // output data of each row
+                                                        while ($row = $result->fetch_assoc()) {
+                                                            echo '<td>' . $row["matricula"] . '</td>';
+                                                            echo '<td>' . $row["nome"] . '</td>';
+                                                            echo '<td>' . $row["nome_curso"] . '</td>';
+                                                            echo '<td>' . $row["email"] . '</td>';
+                                                            echo '</tr>';
                                                         }
-                                                        $conn->disconnect();
-                                                        ?>
-                                                </tbody>
-                                            </table>
-                                        </form>
+                                                    }
+                                                    $conn->disconnect();
+                                                    ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php include './menu_rodape.php'; ?>
             </div>
         </div>
     </body>
