@@ -42,29 +42,32 @@
 
                 <div class="content">
                     <div class="container-fluid">
-                        <div class="row">
 
-                            <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-7">
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Enviar Documentos Para o Orientador</h4>
+                                        <div align="center"> <h4 class="title">Enviar Documentos Para o Orientador</h4></div>
                                     </div>
                                     <div class="content">
                                         <a href="#">
-                                            
-                                            <i class="pe-7s-cloud-upload"></i>
+
+                                            <div align="center"><i class="pe-7s-cloud-upload"></i>
                                             <p>Enviar</p>
                                         </a>
+                                        </div>
                                         <div class="footer">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-7">
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Documentos Recebidos</h4>
+                                        <div align="center"><h4 class="title">Documentos Recebidos</h4></div>
                                     </div>
                                     <div class="content">
                                         <!-- Select Para os Documentos Recebidos -->
@@ -73,11 +76,13 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-7">
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Documentos Enviados</h4>
+                                        <div align="center"><h4 class="title">Documentos Enviados</h4></div>
                                     </div>
                                     <div class="content">
                                         <!-- Select Para os Documentos Enviados -->

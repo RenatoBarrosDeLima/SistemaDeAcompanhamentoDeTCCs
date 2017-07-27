@@ -25,10 +25,11 @@
            <!-- <img class="imgBack" src="imagens/backgroud.png" alt="Logo" width="170" height="100">-->
 
             <div class="card card-container">
+                <h5 class="title">SISTEMA DE ACOMPANHAMENTO DE TCCS - SA_TCC</h5>
                 <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
                 <img id="profile-img" class="profile-img-card" src="view/imagens/logo.png" />
                 <p id="profile-name" class="profile-name-card"></p>
-
+                
                 <form class="form-signin" action="controller/LoginControler.php" method="post">
 
                     <span id="reauth-email" class="reauth-email"></span>
@@ -39,17 +40,13 @@
                     <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
 
                 </form><!-- /form -->
-                 <p>Não tem Acesso? Cadastre uma Senha abaixo!</p>
-                <a href='view/FormularioProfCoordenador/criarSenhaProfessorCoordenador.php' class="forgot-password">
-                    Cadastrar Uma Senha de Professor
+                <div align="center"> <p>Não tem Acesso? Cadastre uma Senha abaixo!</p>
+                 <a href='view/cadastrarSenha.php' class="forgot-password">
+                     <div align="center">Cadastrar Uma Senha</div
                 </a>
-                <br>
-                <a href='view/FormularioAluno/criarSenhaAluno.php' class="forgot-password">
-                    Cadastrar Uma Senha de Aluno
-                </a>
-                <br>
-                <a href="recuperarSenha.php" class="forgot-password">
-                    Recuperar senha
+  
+                <a href="#" class="forgot-password">
+                    <div align="center"> Recuperar senha</div>
 
                 </a>
             </div><!-- /card-container -->

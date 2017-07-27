@@ -34,7 +34,7 @@ class Login extends Banco {
     }
 
     public function verificaProfessor() {
-        $this->sql = "SELECT matricula, senha, codCurso, nome, funcao FROM professor WHERE (matricula = '" . $this->matricula . "') AND (senha = '" . $this->senha . "')";
+        $this->sql = "SELECT matricula, senha, codCurso, nome, funcao FROM professor_tcc WHERE (matricula = '" . $this->matricula . "') AND (senha = '" . $this->senha . "')";
         $this->query = mysqli_query($this->conecta, $this->sql) or die(mysqli_error($this->conecta));
         $this->row = mysqli_num_rows($this->query);
         if ($this->row > 0) {

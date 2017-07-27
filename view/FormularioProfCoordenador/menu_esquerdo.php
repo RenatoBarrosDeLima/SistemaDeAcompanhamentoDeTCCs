@@ -31,21 +31,21 @@ if (!isset($_SESSION['MATRICULA_PROF_COORDENADOR'])) {
                 </a>
             </li>
             <li>
-                <a href="grupoTCC.php">
+                <a href="projetosTCC.php">
                     <i class="pe-7s-study"></i>
-                    <p>Grupos de TCC's</p>
+                    <p>Projetos de TCC's</p>
                 </a>
             </li>
             <li>
-                <a href="alunosMatriculados.php">
+                <a href="turmasTCC.php">
                     <i class="pe-7s-users"></i>
-                    <p>Turma de TCC 2017.1</p>
+                    <p>Turmas de TCCs</p>
                 </a>
             </li>
             <li>
-                <a href="matricularAluno.php">
+                <a href="incluirParticipantes.php">
                     <i class="pe-7s-add-user"></i>
-                    <p>Matricular Aluno</p>
+                    <p>Incluir Participantes</p>
                 </a>
             </li>
             <li>

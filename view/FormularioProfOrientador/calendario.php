@@ -53,7 +53,7 @@
                             Data do Evento: <input type="date" name="data" class="form-control" required/>  
                             <input type="hidden" name="codCurso" value="<?php echo $_SESSION['CURSO_PROF_COORDENADOR']; ?>" required/>
                             <br>
-                            <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin"> Salvar novo evento </button>
+                            <button type="submit" class="btn btn-info btn-fill pull-right"> Salvar novo evento </button>
                         </form>
                     </div>
                 </div>

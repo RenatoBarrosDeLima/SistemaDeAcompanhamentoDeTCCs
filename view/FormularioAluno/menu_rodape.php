@@ -3,17 +3,17 @@
         <nav class="pull-left">
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="inicioAluno.php">
                         Inicio
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="http://www.pi.gov.br">
                         Governo do Estado do Piauí
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="http://www.uespi.br">
                         UESPI
                     </a>
                 </li>

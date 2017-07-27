@@ -90,7 +90,7 @@
         <style>
             #calendario{
                 position: absolute;
-                width: 45%;
+                width: 50%;
                 margin: inherit;
             }        
         </style>

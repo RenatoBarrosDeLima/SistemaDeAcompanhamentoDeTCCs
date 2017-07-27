@@ -34,66 +34,14 @@
             <?php
             include 'menu_esquerdo.php';
             ?>
-
             <div class="main-panel">
                 <?php
                 include 'menu_superior.php';
                 ?>
-
-                <div class="content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <a href="http://www.pi.gov.br">
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="header">
-                                            <h4 class="title">Governo do Estado</h4>
-                                            <p class="category">Faça-nos uma visita</p>
-                                        </div>
-                                        <div class="content">
-                                            <img id="chartPreferences" class="ct-chart ct-perfect-fifth" src="../imagens/governo.jpg" title="Governo do Estado do Piauí"/>
-                                            <div class="footer">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="http://www.uespi.br">
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="header">
-                                            <h4 class="title">UESPI</h4>
-                                            <p class="category">Faça-nos uma visita</p>
-                                        </div>
-                                        <div class="content">
-                                            <!--<div id="chartHours" class="ct-chart"></div>-->
-                                            <img id="chartPreferences" class="ct-chart ct-perfect-fifth" src="../imagens/uespi.jpg" title="Universidade Estadual do Piauí"/>
-                                            <div class="footer">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="#">
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="header">
-                                            <h4 class="title">COMP_UESPI</h4>
-                                            <p class="category">Faça-nos uma visita</p>
-                                        </div>
-                                        <div class="content">
-                                            <!--<div id="chartHours" class="ct-chart"></div>-->
-                                            <img id="chartPreferences" class="ct-chart ct-perfect-fifth" src="../imagens/site.jpg" title="Portal do Curso de Ciência da Computação - UESPI"/>
-                                            <div class="footer">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                <div class="content" >
+                    <?php
+                    include './menu_calendario.php';
+                    ?>
                 </div>
                 <?php include './menu_rodape.php'; ?>
             </div>
