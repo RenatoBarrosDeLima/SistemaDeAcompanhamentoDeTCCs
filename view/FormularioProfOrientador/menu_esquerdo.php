@@ -38,7 +38,7 @@ if (!isset($_SESSION['MATRICULA_PROF_ORIENTADOR'])) {
             </li>
             <li>
                 <a href="#">
-                    <i class="pe-7s-date"></i>
+                    <i class="pe-7s-folder"></i>
                     <p>Meus Documentos</p>
                 </a>
             </li>
