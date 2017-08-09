@@ -43,7 +43,7 @@
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-8">
                                 <div class="card">
                                     <div class="header">
                                         <h4 class="title">TURMAS DE TCCs</h4>
@@ -64,13 +64,12 @@
                                                         $conn = new Banco();
                                                         //$result = $conn->querySelect("SELECT a.matricula, a.nome, b.nome_curso, a.email FROM aluno_tcc as A INNER JOIN curso as B on a.codCurso = b.codCurso WHERE b.codCurso = '" . $_SESSION['CURSO_PROF_COORDENADOR'] . "'");
                                                         $result = $conn->querySelect("SELECT DISTINCT periodo FROM aluno_tcc");
-
-
+                                                        
                                                         if ($result->num_rows > 0) {
                                                             // output data of each row
                                                             while ($row = $result->fetch_assoc()) {
                                                                 echo '<td>' . $row["periodo"] . '</td>';
-                                                                echo '<td> <button value=' . $row['periodo'] . ' 
+                                                                echo '<td> <button class="btn btn-group btn-fill" value=' . $row['periodo'] . ' 
                                                                 name="periodo" type="submit" >Visualizar</button> </td>';
                                                                 echo '</tr>';
                                                             }

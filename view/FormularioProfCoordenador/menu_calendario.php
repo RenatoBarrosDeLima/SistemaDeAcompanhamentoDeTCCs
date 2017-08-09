@@ -95,12 +95,10 @@
                 margin: inherit;
             }        
         </style>
-        <div class="form-signin" id='calendario'>
-
-        </div>
     </head>
     <body>
-
+        <div class="form-signin" id='calendario'></div>
     </body>
+
 </html>
 

@@ -3,10 +3,11 @@
 include "../FormularioProfCoordenador/conexao.php";
 
 $nome = $_POST["nome"];
+$periodo = $_POST["periodo"];
 $data = $_POST["data"];
 $curso = $_POST["codCurso"];
 
-$query = "INSERT INTO eventos (title, start, curso) VALUES ('$nome', '$data', '$curso')";
+$query = "INSERT INTO eventos (title, start, curso, periodo_evento) VALUES ('$nome', '$data', '$curso', '$periodo')";
 
 $exec = $conexao->exec($query);
 

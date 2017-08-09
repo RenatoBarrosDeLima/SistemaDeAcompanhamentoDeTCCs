@@ -46,7 +46,7 @@
                             <div class="col-md-7">
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">PROJETOS DE TCCs POR PERÍODO</h4>
+                                        <h4 class="title">Meus Projetos</h4>
                                     </div>
                                     <div class="content">
                                         <form class="form-signin" id="formulario" action= "projetos_Criados.php" method="post">

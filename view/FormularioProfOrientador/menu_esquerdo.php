@@ -48,6 +48,12 @@ if (!isset($_SESSION['MATRICULA_PROF_ORIENTADOR'])) {
                     <p>Calendario</p>
                 </a>
             </li>
+            <li>
+                <a href="#">
+                    <i class="pe-7s-study"></i>
+                    <p>Meus Projetos</p>
+                </a>
+            </li>
             <li class="active-pro">
                 <a href="http://www.uespi.br/site/" target="_blank" class="simple-text">
                     <i class="pe-7s-rocket"></i>

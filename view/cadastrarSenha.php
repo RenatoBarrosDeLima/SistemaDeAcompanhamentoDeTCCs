@@ -6,7 +6,7 @@
         <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-        <title>Pagina Inicial Professor Coordenador de TCC</title>
+        <title>Criar Conta</title>
 
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         <meta name="viewport" content="width=device-width" />
@@ -122,15 +122,14 @@
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Salvar</button>
-                                        <a href="../index.php"<button class="btn btn-info btn-fill pull-left">Sair</button></a>
+                                        <button type="submit" class="btn btn-success btn-fill pull-right">Salvar</button>
+                                        <a href="../index.php"<button class="btn btn-toolbar btn-fill pull-left">Voltar</button></a>
 
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
                         </div>
- 
                     </div>
                 </div>
                 <?php include './FormularioAluno/menu_rodape.php'; ?>

@@ -70,7 +70,7 @@ class Aluno extends Banco {
 
     function incluir_Aluno_Tcc() {
         $this->tabela = "aluno_tcc";
-        $this->campos = array("matricula", "nome", "email", "codCurso", "senha", "periodo");
+        $this->campos = array("matricula", "nome_Aluno", "email", "codCurso", "senha", "periodo");
         $this->valores = array($this->getMatricula_Aluno(), $this->getNome_Aluno(), $this->getEmail_Aluno(), $this->getCurso_Aluno(), $this->getSenha_Aluno(), $this->getPeriodo_Aluno());
         $result = $this->inserirRegistro();
 

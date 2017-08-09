@@ -72,7 +72,7 @@ class Login extends Banco {
     }
 
     public function verificaAluno() {
-        $this->sql = "SELECT matricula, senha, codCurso, nome FROM aluno_tcc WHERE (matricula = '" . $this->matricula . "') AND (senha = '" . $this->senha . "')";
+        $this->sql = "SELECT matricula, senha, codCurso, nome_Aluno FROM aluno_tcc WHERE (matricula = '" . $this->matricula . "') AND (senha = '" . $this->senha . "')";
         $this->query = mysqli_query($this->conecta, $this->sql) or die(mysqli_error($this->conecta));
         $this->row = mysqli_num_rows($this->query);
         if ($this->row > 0) {
@@ -83,7 +83,7 @@ class Login extends Banco {
             $_SESSION['MATRICULA_ALUNO'] = $this->resultado['matricula'];
             $_SESSION['SENHA_ALUNO'] = $this->resultado['senha'];
             $_SESSION['CURSO_ALUNO'] = $this->resultado['codCurso'];
-            $_SESSION['NOME_ALUNO'] = $this->resultado['nome'];
+            $_SESSION['NOME_ALUNO'] = $this->resultado['nome_Aluno'];
 
             header("Location: ../view/FormularioAluno/inicioAluno.php");
             exit;

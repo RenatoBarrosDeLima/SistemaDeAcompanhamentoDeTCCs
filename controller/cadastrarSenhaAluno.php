@@ -18,12 +18,12 @@ class AtualizarAluno {
         } else {
 
             $testeMatricula = $_POST['matricula'];
-            $testeNome = $_POST['nome'];
+            $testeNome = $_POST['nome_Aluno'];
             $testeEmail = $_POST['email'];
             $testeCurso = $_POST['curso'];
             $criaSenha = $_POST['senha'];
 
-            $resultTestDados = $conn->querySelect("select * FROM aluno_tcc WHERE nome = '" . $testeNome . "' and email = '" . $testeEmail . "' and codCurso = '" . $testeCurso . "'");
+            $resultTestDados = $conn->querySelect("select * FROM aluno_tcc WHERE nome_Aluno = '" . $testeNome . "' and email = '" . $testeEmail . "' and codCurso = '" . $testeCurso . "'");
 
             if ($resultTestDados->num_rows == 0) {
                 echo "<script>alert(' Um ou outro Dados Não Confere Com os Dados da Matricula. Tente de Novo ou Entre em Contato com o seu coordenador!');
