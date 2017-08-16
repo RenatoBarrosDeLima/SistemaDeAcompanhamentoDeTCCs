@@ -6,8 +6,9 @@ $nome = $_POST["nome"];
 $periodo = $_POST["periodo"];
 $data = $_POST["data"];
 $curso = $_POST["codCurso"];
+$prof = $_POST["professor"];
 
-$query = "INSERT INTO eventos (title, start, curso, periodo_evento) VALUES ('$nome', '$data', '$curso', '$periodo')";
+$query = "INSERT INTO eventos (title, start, curso, periodo_evento, professor) VALUES ('$nome', '$data', '$curso', '$periodo', '$prof')";
 
 $exec = $conexao->exec($query);
 

@@ -3,12 +3,12 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="editarAluno.php">
+                    <a href="#">
                         <?php echo "" . $_SESSION['NOME_ALUNO']; ?>
                     </a>
                 </li>
                 <li>
-                    <a href="editarAluno.php">
+                    <a href="#">
                         Editar Conta
                     </a>
                 </li>

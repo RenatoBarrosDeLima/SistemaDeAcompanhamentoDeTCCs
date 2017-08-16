@@ -11,12 +11,12 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="formEditarProfessor.php">
+                    <a href="#">
                         <?php echo "" . $_SESSION['NOME_COORDENADOR_CURSO']; ?>
                     </a>
                 </li>
                 <li>
-                    <a href="formEditarProfessor.php">
+                    <a href="#">
                         Editar Conta
                     </a>
                 </li>

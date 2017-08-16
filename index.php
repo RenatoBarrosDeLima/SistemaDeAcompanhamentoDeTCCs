@@ -36,6 +36,11 @@
                     <a href="#" class="forgot-password">
                         <div align="center"> Recuperar senha</div>
                     </a>
+                    <!--
+                                        <a href="mensagem/" class="forgot-password">
+                                            <div align="center"> Testar Troca de Mensagens</div>
+                                        </a>
+                    -->
                 </div>
             </div>
         </div>

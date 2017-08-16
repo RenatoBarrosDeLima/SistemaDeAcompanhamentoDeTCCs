@@ -46,58 +46,48 @@
                             <div class="col-md-7">
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">PROJETOS DE TCCs POR PERÍODO</h4>
+                                        <h4 class="title">Meus Projetos por Alunos</h4>
                                     </div>
                                     <div class="content">
-                                        <form class="form-signin" id="formulario" action= "projetos_Criados.php" method="post">
+                                        <form class="form-signin" id="formulario" action= "projeto_acompanhar.php" method="post">
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Periodo</th>
+                                                        <th>Matricula - Aluno</th>
+                                                        <th>Nome - Aluno</th>
+                                                        <th>Email - Aluno</th>
+                                                        <th>Período - Aluno</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <?php
-                                                        include '../../model/dao/Banco.php';
+                                                    <?php
+                                                    include '../../model/dao/Banco.php';
 
-                                                        $conn = new Banco();
-                                                        $result = $conn->querySelect("SELECT DISTINCT al.periodo FROM   aluno_tcc al INNER JOIN projeto_tcc pj ON (al.matricula = pj.matricula_aluno)");
+                                                    $conn = new Banco();
+                                                    $result = $conn->querySelect("SELECT al.matricula,  al.nome_Aluno, al.email, al.periodo FROM aluno_tcc al INNER JOIN projeto_tcc pj ON (al.matricula = pj.matricula_aluno) INNER JOIN professor_tcc pf ON (pf.matricula = pj.matricula_professor) WHERE al.codCurso = '" . $_SESSION['CURSO_PROF_ORIENTADOR'] . "' and al.periodo = '" . $_POST['periodo'] . "' AND pj.matricula_professor = '" . $_SESSION['MATRICULA_PROF_ORIENTADOR'] . "'");
 
-                                                        if ($result->num_rows > 0) {
-                                                            // output data of each row
-                                                            while ($row = $result->fetch_assoc()) {
-                                                                echo '<td>' . $row["periodo"] . '</td>';
-                                                                echo '<td> <button class="btn btn-group btn-fill" value=' . $row['periodo'] . ' 
-                                                                name="periodo" type="submit" >Visualizar</button> </td>';
-                                                                echo '</tr>';
-                                                            }
+                                                    //SELECT  pj.matricula_aluno,  al.nome_Aluno, pj.matricula_professor, pf.nome FROM aluno_tcc al INNER JOIN projeto_tcc pj ON (al.matricula = pj.matricula_aluno) INNER JOIN professor_tcc pf ON (pf.matricula = pj.matricula_professor) WHERE al.codCurso = 1 and al.periodo = 2017.1
+
+                                                    if ($result->num_rows > 0) {
+                                                        // output data of each row
+                                                        while ($row = $result->fetch_assoc()) {
+                                                            echo '<td>' . $row["matricula"] . '</td>';
+                                                            echo '<td>' . $row["nome_Aluno"] . '</td>';
+                                                            echo '<td>' . $row["email"] . '</td>';
+                                                            echo '<td>' . $row["periodo"] . '</td>';
+                                                            echo '<td> <button class="btn btn-group btn-fill" value=' . str_replace(' ', '%', $row['nome_Aluno'])  . '  
+                                                                name="nome_Aluno" type="submit" >Visualizar</button> </td>';
+                                                            echo '</tr>';
                                                         }
-                                                        $conn->disconnect();
-                                                        ?>
+                                                    }
+                                                    $conn->disconnect();
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-5">
-                                <div class="card">
-                                    <div class="header">
-                                        <h4 class="title">Criar Novo Projeto </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="ct-chart-bar"></div>
-                                        <form id="novo_evento" action="novoProjeto.php" method="post">
-                                            <br>
-                                            <button type="submit" class="btn btn-info btn-fill"> Novo Projeto </button>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,7 @@
             </ul>
         </nav>
         <p class="copyright pull-right">
-            &copy; 2017 - Sistema em Desenvolvimento
+            &copy; 2017 - Sistema em Desenvolvimento - RamonNet
         </p>
     </div>
 </footer>

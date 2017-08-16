@@ -15,7 +15,7 @@ if (!isset($_SESSION['MATRICULA_PROF_ORIENTADOR'])) {
     exit;
 }
 
-$consulta = $conexao->query("SELECT * FROM eventos where curso = '" . $_SESSION['CURSO_PROF_ORIENTADOR'] . "'");
+$consulta = $conexao->query("SELECT * FROM eventos where curso = '" . $_SESSION['CURSO_PROF_ORIENTADOR'] . "' AND professor = '" . $_SESSION['MATRICULA_PROF_ORIENTADOR'] . "' OR professor = 0");
 while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
     //echo "Nome: {$linha['nome']} - E-mail: {$linha['email']}<br />";
     $vetor[] = $linha;

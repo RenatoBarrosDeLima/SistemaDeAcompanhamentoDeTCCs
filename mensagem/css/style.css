@@ -1,0 +1,38 @@
+*{margin: 0px; padding: 0px;}
+
+body{
+	background-color: #EEEEEE;
+}
+
+#content{
+	background-color: #FFF;
+	padding: 10px;
+}
+
+.foto-user{
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+}
+
+.chat-i{
+	border-radius: 8px;
+	padding: 10px;
+	max-width: 80%;
+	background-color: #CCE2FB;
+	box-shadow: #333 0px 0px 1px;
+	display: table;
+	margin: 20px;
+}
+
+.chat-you{
+	border-radius: 8px;
+	padding: 10px;
+	max-width: 80%;
+	background-color: #EAEAEA;
+	box-shadow: #333 0px 0px 1px;
+	display: table;
+	margin: 20px;
+}
+
+.emoticons-size{width: 20px; height: 20px;}

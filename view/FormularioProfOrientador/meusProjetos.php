@@ -46,14 +46,14 @@
                             <div class="col-md-7">
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Meus Projetos</h4>
+                                        <h4 class="title">Projetos por Período</h4>
                                     </div>
                                     <div class="content">
                                         <form class="form-signin" id="formulario" action= "projetos_Criados.php" method="post">
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Periodo</th>
+                                                        <th>Período</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -62,9 +62,7 @@
                                                         include '../../model/dao/Banco.php';
 
                                                         $conn = new Banco();
-                                                        $result = $conn->querySelect("SELECT DISTINCT al.periodo FROM   aluno_tcc al INNER JOIN projeto_tcc pj ON (al.matricula = pj.matricula_aluno)");
-                                                        //SELECT DISTINCT tp.periodo FROM   aluno_tcc tp INNER JOIN aluno_professor tf ON (tp.matricula = tf.matricula_aluno) WHERE tf.curso = 1
-                                                        //SELECT  tp.matricula,  tp.nome,  tp.email,tu.matricula, tu.nome, tu.email FROM aluno_tcc tp INNER JOIN aluno_professor tf ON (tp.matricula = tf.matricula_aluno) INNER JOIN professor_tcc tu ON (tu.matricula = tf.matricula_professor)
+                                                        $result = $conn->querySelect("SELECT DISTINCT al.periodo FROM aluno_tcc al INNER JOIN projeto_tcc ON (al.matricula = projeto_tcc.matricula_aluno) WHERE projeto_tcc.matricula_professor = '" . $_SESSION['MATRICULA_PROF_ORIENTADOR'] . "'");
 
                                                         if ($result->num_rows > 0) {
                                                             // output data of each row
@@ -83,23 +81,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-5">
-                                <div class="card">
-                                    <div class="header">
-                                        <h4 class="title">Criar Novo Projeto </h4>
-                                    </div>
-                                    <div class="content">
-                                        <div class="ct-chart-bar"></div>
-                                        <form id="novo_evento" action="novoProjeto.php" method="post">
-                                            <br>
-                                            <button type="submit" class="btn btn-info btn-fill"> Novo Projeto </button>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>

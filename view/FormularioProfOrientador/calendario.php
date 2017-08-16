@@ -146,6 +146,7 @@ if (!isset($_SESSION['MATRICULA_PROF_ORIENTADOR'])) {
                                             Data do Evento: <input type="date" name="data" class="form-control" required/>  
                                             <br> 
                                             <input type="hidden" name="codCurso" value="<?php echo $_SESSION['CURSO_PROF_ORIENTADOR']; ?>" required/>
+                                            <input type="hidden" name="professor" value="<?php echo $_SESSION['MATRICULA_PROF_ORIENTADOR']; ?>" required/>
                                             <br>
                                             <button type="submit" class="btn btn-success btn-fill"> Salvar novo evento </button>
                                             <a href="#"<button class="btn btn-warning btn-fill"> Editar </button></a>

@@ -1,4 +1,3 @@
-<!doctype html>
 <?php
 // A sessão precisa ser iniciada em cada página diferente
 if (!isset($_SESSION))
@@ -49,7 +48,7 @@ if (!isset($_SESSION['MATRICULA_PROF_ORIENTADOR'])) {
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="meusProjetos.php">
                     <i class="pe-7s-study"></i>
                     <p>Meus Projetos</p>
                 </a>
